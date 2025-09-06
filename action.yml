@@ -1,0 +1,53 @@
+name: 'Package Monetization Automation'
+description: 'Automatically monetize your GitHub package releases with pricing tiers, license management, and revenue tracking'
+author: 'Tryboy869'
+
+branding:
+  icon: 'dollar-sign'
+  color: 'green'
+
+inputs:
+  monetization_type:
+    description: 'Type of monetization (usage_based, subscription, one_time, donation)'
+    required: false
+    default: 'usage_based'
+  pricing_tier:
+    description: 'Pricing tier (free, basic, pro, enterprise)'
+    required: false
+    default: 'basic'
+  payment_processor:
+    description: 'Payment processor (stripe, paypal, github_sponsors)'
+    required: false
+    default: 'stripe'
+  stripe_api_key:
+    description: 'Stripe API key for payment processing'
+    required: false
+  analytics_enabled:
+    description: 'Enable usage analytics (privacy-compliant)'
+    required: false
+    default: 'true'
+
+outputs:
+  monetization_status:
+    description: 'Status of monetization setup'
+  payment_links:
+    description: 'Generated payment links JSON'
+  license_keys:
+    description: 'Generated license keys (encrypted)'
+  revenue_dashboard:
+    description: 'URL to revenue dashboard'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: 'Package Monetization Setup'
+      run: |
+        echo "🚀 Starting Package Monetization Automation..."
+        ${{ github.action_path }}/scripts/setup.sh
+      shell: bash
+      env:
+        INPUT_MONETIZATION_TYPE: ${{ inputs.monetization_type }}
+        INPUT_PRICING_TIER: ${{ inputs.pricing_tier }}
+        INPUT_PAYMENT_PROCESSOR: ${{ inputs.payment_processor }}
+        INPUT_STRIPE_API_KEY: ${{ inputs.stripe_api_key }}
+        INPUT_ANALYTICS_ENABLED: ${{ inputs.analytics_enabled }}

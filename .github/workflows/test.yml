@@ -1,0 +1,27 @@
+name: Test Action
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Test Action
+        uses: ./
+        with:
+          monetization_type: 'usage_based'
+          pricing_tier: 'basic'
+          payment_processor: 'stripe'
+          
+      - name: Validate Outputs
+        run: |
+          echo "Testing action outputs..."
+          ls -la
+          cat pricing-config.json
+          cat setup-summary.md

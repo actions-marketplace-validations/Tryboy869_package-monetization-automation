@@ -1,0 +1,14 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "example-monetized-package"
+version = "1.0.0"
+description = "Example monetized Python package"
+authors = [{name = "Your Name", email = "your@email.com"}]
+license = {text = "MIT"}
+dependencies = ["requests>=2.25.0"]
+
+[project.optional-dependencies]
+dev = ["pytest>=6.0"]
