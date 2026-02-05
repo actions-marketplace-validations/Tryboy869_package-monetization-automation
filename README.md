@@ -203,4 +203,4 @@ Thanks to early beta testers who provided initial feedback and helped validate t
 
 **⭐ Star this repo if you're interested in the project's development!**
 
-Made with ❤️ by [Tryboy869](https://github.com/Tryboy869) | Beta Version
+Made with 💚 by [Tryboy869](https://github.com/Tryboy869) | Beta Version
